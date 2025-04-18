@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Incidencias</title>
+  <link rel="stylesheet" href="formulario.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h1 id="welcome-message">Cargando...</h1>
+    <h2 id="station-info"></h2>
+    <form id="incident-form">
+      <label for="full-name">Nombre y Apellido</label>
+      <input type="text" id="full-name" placeholder="Nombre y Apellido" required />
+
+      <label for="phone-number">Número Celular</label>
+      <input
+        type="text"
+        id="phone-number"
+        placeholder="9 dígitos"
+        required
+        pattern="\d{9}"
+        title="Debe ser un número de 9 dígitos"
+      />
+
+      <label for="store-email">Email de Tienda</label>
+      <input type="email" id="store-email" placeholder="Correo electrónico" required />
+
+      <label for="incident-type">Elije la Incidencia</label>
+      <select id="incident-type" required>
+        <option value="">Seleccionar...</option>
+        <option value="sensores">
+          Problemas con restablecimiento de sensores de humo o pulsadores
+        </option>
+        <option value="sistema">Problemas con el armado del sistema</option>
+        <option value="alarma">Alarma suena sin motivo</option>
+        <option value="gabinete">Problemas con gabinete</option>
+        <option value="camaras">No se visualizan cámaras</option>
+        <option value="sirena">Sirena no suena</option>
+        <option value="roto">Cámara o sensor roto</option>
+        <option value="cableado">Cableado expuesto</option>
+      </select>
+
+      <label for="system-type">Tipo de Sistema</label>
+      <select id="system-type" required>
+        <option value="">Seleccionar...</option>
+        <option value="alarma">Alarma</option>
+        <option value="cctv">CCTV</option>
+        <option value="alarma-cctv">Alarma + CCTV</option>
+      </select>
+
+      <label for="observations">Observaciones</label>
+      <textarea
+        id="observations"
+        placeholder="Describa brevemente la incidencia"
+        rows="5"
+        required
+      ></textarea>
+
+      <!-- Botón para tomar una fotografía de evidencia -->
+      <label for="photo-btn">Fotografía de evidencia</label>
+      <button type="button" id="photo-btn">Tomar Fotografía</button>
+
+      <!-- Contenedor para la cámara y el botón de Capturar -->
+      <div class="capture-container" id="capture-container" style="display: none;">
+        <video id="camera-stream" autoplay></video>
+        <button type="button" id="capture-btn">Capturar</button>
+      </div>
+
+      <canvas id="photo-canvas" style="display:none;"></canvas>
+      <img
+        id="fallback-image"
+        src="error-camera.png"
+        alt="Cámara no disponible"
+        style="display:none; width:100%; max-width: 400px; margin-top: 10px;"
+      />
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <!-- Botón para volver al menú -->
+    <button id="back-btn">Atrás</button>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-storage-compat.js"></script>
+  <!-- Agregamos la librería de Firebase Functions -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-functions-compat.js"></script>
+
+  <!-- Configuración de Firebase -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAegP-XRvsKqAqEvKY5KhOjjChN1Up2tFI",
+      authDomain: "primax-a2cf9.firebaseapp.com",
+      projectId: "primax-a2cf9",
+      storageBucket: "primax-a2cf9.firebasestorage.app",
+      messagingSenderId: "388247650730",
+      appId: "1:388247650730:web:7769efb02bacfb2ca06bd3",
+      measurementId: "G-LRLQY9CGPX"
+    };
+
+    // Inicializa Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+    const auth = firebase.auth();
+  </script>
+
+  <!-- Eliminamos EmailJS ya que usaremos Cloud Functions -->
+  <!-- Archivo JavaScript -->
+  <script src="formulario.js"></script>
+</body>
+</html>

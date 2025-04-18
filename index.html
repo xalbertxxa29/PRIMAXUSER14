@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liderman - Login</title>
+  <meta name="description" content="Inicia sesión en Liderman Alarmas para acceder al dashboard y gestionar tus alarmas de forma segura." />
+  <meta name="keywords" content="Liderman, Alarmas, Login, Dashboard, Seguridad" />
+  <meta name="author" content="Liderman Alarmas" />
+  <link rel="canonical" href="https://tu-sitio-web.com/"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="manifest" href="manifest.json"/>
+</head>
+<body>
+  <!-- Splash Screen: Aquí se incluye el video o gif de presentación -->
+  <div id="splash-screen">
+    <!-- Puedes usar un video o un gif; en este ejemplo se usa un video -->
+    <video id="splash-video" autoplay muted playsinline>
+      <source src="splash.mp4" type="video/mp4">
+      <!-- Si prefieres un gif, podrías usar: -->
+      <!-- <img src="splash.gif" alt="Splash animation"> -->
+      Tu navegador no soporta video.
+    </video>
+  </div>
+
+  <!-- Header con logo en la parte superior izquierda -->
+  <header class="site-header">
+    <img src="logo.png" alt="Liderman Logo" class="header-logo">
+  </header>
+
+  <div class="login-container">
+    <div class="logo">Liderman Support</div>
+    <div class="login-card">
+      <form id="login-form" role="form" aria-label="Formulario de inicio de sesión">
+        <label for="username">Correo electrónico</label>
+        <input type="email" id="username" placeholder="Correo electrónico" required aria-required="true">
+
+        <label for="password">Contraseña</label>
+        <!-- Agrupamos el input de contraseña y el botón toggle en un contenedor -->
+        <div class="password-container">
+          <input type="password" id="password" placeholder="Contraseña" required aria-required="true">
+          <button type="button" id="togglePassword" aria-label="Mostrar contraseña">👁️</button>
+        </div>
+
+        <div class="remember-me">
+          <input type="checkbox" id="remember">
+          <label for="remember">Recordarme</label>
+        </div>
+        <button id="login-btn" type="submit">Iniciar sesión</button>
+      </form>
+
+      <!-- Spinner de carga -->
+      <div id="loader" role="status" aria-live="polite" style="display: none;">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+
+      <div class="links">
+        <a href="#">Políticas de Privacidad</a>
+      </div>
+
+      <!-- Contenedor para mensajes de error (opcional) -->
+      <div id="error-message" class="error-message" role="alert" aria-live="assertive"></div>
+    </div>
+  </div>
+
+  <!-- Modal de Error -->
+  <div class="modal-overlay" id="errorModal" tabindex="-1">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar modal">&times;</button>
+      <p id="modalMessage"></p>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-storage-compat.js"></script>
+  
+  <!-- Configuración de Firebase (archivo externo) -->
+  <script src="firebase-config.js"></script>
+
+  <!-- Script principal -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+/* --- Estilos base --- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  /* Fondo con imagen image.png */
+  background: url('image.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Header con logo */
+.site-header {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 11000;
+}
+.header-logo {
+  height: 50px;
+  width: auto;
+  animation: pulse 3s infinite;
+}
+
+/* Contenedor principal de login */
+.login-container {
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: slideIn 1s ease-out forwards;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.logo {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #f8f8f8;
+  animation: bounceIn 1s ease-out;
+}
+
+.login-card {
+  background: #ffffff;
+  color: #000000;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+}
+
+.login-card label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  color: #333;
+}
+
+.login-card label:hover {
+  color: #e70909;
+}
+
+.login-card input[type="email"],
+.login-card input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: transform 0.3s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Microinteracción en inputs */
+.login-card input:focus {
+  transform: scale(1.02);
+  border-color: #e70909;
+  box-shadow: 0 0 10px rgba(231, 9, 9, 0.3);
+  outline: none;
+}
+
+/* Estilos para checkbox "Recordarme" */
+.remember-me {
+  margin-bottom: 15px;
+}
+.remember-me input[type="checkbox"] {
+  transition: transform 0.2s ease;
+}
+.remember-me input[type="checkbox"]:checked {
+  transform: scale(1.2);
+}
+.remember-me label {
+  transition: color 0.3s ease;
+}
+.remember-me input[type="checkbox"]:checked + label {
+  color: #e70909;
+}
+
+#login-btn {
+  background: #e70909;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  width: 100%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#login-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(231, 9, 9, 0.5);
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.links {
+  margin-top: 15px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.links a {
+  color: #e70909;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.links a:hover {
+  color: #fff;
+  transform: translateX(5px);
+  text-decoration: underline;
+}
+
+/* --- Animaciones --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  80% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Spinner Loader */
+#loader {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+  display: none;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInModal 0.3s ease-out;
+}
+
+.modal-content {
+  background: #fff;
+  color: #333;
+  padding: 20px 30px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  border: 2px solid #e70909;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #e70909;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Animación "shake" para el modal */
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+/* --- Splash Screen --- */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 12000; /* Se ubica por encima de todo el contenido */
+}
+
+/* Asegura que el video ocupe todo el contenedor */
+#splash-screen video {
+  width: 100%;
+  height: auto;
+}
+/* Contenedor de la contraseña */
+.password-container {
+  position: relative;
+  width: 80%;           /* Ajusta según tu diseño */
+  margin: 0 auto 15px;  /* margen inferior para separar el campo */
+}
+
+/* Ajuste de input para asegurar espacio y altura */
+.password-container input[type="password"],
+.password-container input[type="text"] {
+  width: 100%;
+  /* Altura y padding del input (ajusta a tu preferencia) */
+  height: 40px; 
+  padding: 0 45px 0 10px; /* deja 45px a la derecha para el ícono */
+  box-sizing: border-box;  /* para que height incluya border y padding */
+  font-size: 1rem;
+  line-height: 1.2rem;     /* puede ajustar la alineación vertical del texto */
+  border: 1px solid #ccc;  /* o el estilo que ya manejes */
+  border-radius: 4px;      /* o el redondeado que uses */
+  margin: 0;               /* evita saltos inesperados */
+  outline: none;           /* quita el outline al hacer click */
+}
+
+/* Botón con el ojito */
+.password-container button#togglePassword {
+  position: absolute;
+  top: 50%;                   /* para centrar verticalmente */
+  right: 10px;                /* separación desde la derecha */
+  transform: translateY(-50%);/* ajusta la posición al 50% de su altura */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;          /* tamaño del ícono, ajústalo a tu gusto */
+  padding: 0;
+  line-height: 1;             /* útil para que no ocupe extra espacio */
+  outline: none;
+}

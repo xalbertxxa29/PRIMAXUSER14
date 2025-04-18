@@ -1,0 +1,144 @@
+/* ======================
+   Estilos Globales 
+========================== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('tu-imagen.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: rgb(196, 22, 22);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-y: auto;
+    animation: fadeInBody 1s ease-in-out;
+  }
+  
+  
+  @keyframes fadeInBody {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  /* ======================
+     Contenedor Principal
+  ========================== */
+  .container {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 10px;
+    padding: 25px 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    animation: slideInContainer 0.8s ease-out;
+  }
+  
+  @keyframes slideInContainer {
+    from { transform: translateY(50px); opacity: 0; }
+    to   { transform: translateY(0);   opacity: 1; }
+  }
+  
+  h1 {
+    margin-bottom: 15px;
+    color: #004d99;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    animation: fadeInText 1s ease-in;
+  }
+  
+  @keyframes fadeInText {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ======================
+     Lista de Registros
+  ========================== */
+  .records-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+    animation: fadeInRecords 1s ease-in-out;
+  }
+  
+  @keyframes fadeInRecords {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  .record-item {
+    background: white;
+    border-radius: 8px;
+    padding: 16px 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    color: #333;
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, 
+                background-color 0.3s ease, letter-spacing 0.3s ease;
+  }
+  
+  .record-item:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background-color: #f7f7f7;
+    letter-spacing: 1px;
+  }
+  
+  .record-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espacio vertical entre los párrafos */
+  }
+  
+  .record-item p {
+    margin: 6px 0; /* Margen superior e inferior para separar las líneas */
+    transition: color 0.3s ease;
+  }
+  
+  .record-item p:hover {
+    color: #004d99;
+  }
+  
+  .record-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .record-item img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* ======================
+     Botón "Atrás"
+  ========================== */
+  .back-btn {
+    margin-top: 20px;
+    background: linear-gradient(to right, #FF6F61, #FF3D41);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  

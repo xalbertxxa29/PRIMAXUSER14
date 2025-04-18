@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <div class="menu-container">
+        <h1>Bienvenido</h1>
+        <h2 id="status-message">Cargando registros...</h2>
+        <div class="menu-buttons">
+            <!-- Botón para ingresar un nuevo registro -->
+            <button class="menu-button" id="add-record-btn">
+                <span class="icon">+</span>
+                <span class="text">Ingresar Nuevo Registro</span>
+            </button>
+            
+            <!-- Botón para ver registros pendientes -->
+            <button class="menu-button" id="view-pending-records-btn">
+                <span class="icon">📄</span>
+                <span class="text">Registros Pendientes</span>
+            </button>
+
+            <!-- Botón para ver el video instructivo -->
+            <button class="menu-button" id="view-video-btn">
+                <span class="icon">🎥</span>
+                <span class="text">Ver Video Instructivo</span>
+            </button>
+
+            <!-- Botón para cerrar sesión -->
+            <button class="menu-button" id="logout-btn">
+                <span class="icon">🔒</span>
+                <span class="text">Cerrar Sesión</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Contenedor del video -->
+    <div id="video-container">
+        <iframe 
+            id="video-frame" 
+            src="https://www.youtube.com/embed/z9s_dGLOi48?si=x-CgMY3AE6tUoxKE"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+        <button id="close-video-btn">Cerrar Video</button>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+
+    <!-- Configuración Firebase -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAegP-XRvsKqAqEvKY5KhOjjChN1Up2tFI",
+            authDomain: "primax-a2cf9.firebaseapp.com",
+            projectId: "primax-a2cf9",
+            storageBucket: "primax-a2cf9.firebasestorage.app",
+            messagingSenderId: "388247650730",
+            appId: "1:388247650730:web:7769efb02bacfb2ca06bd3",
+            measurementId: "G-LRLQY9CGPX"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Archivo JavaScript -->
+    <script src="menu.js"></script>
+</body>
+</html>

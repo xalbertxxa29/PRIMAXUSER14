@@ -1,0 +1,228 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('image.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    opacity: 0;
+    animation: fadeInBody 1s ease-in-out forwards;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    animation: slideInMenu 0.8s ease-in-out forwards;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    animation: fadeInText 1s ease-in-out;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #bbbbbb;
+    animation: fadeInText 1.2s ease-in-out;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+    animation: fadeInButtons 1.5s ease-in-out;
+}
+
+.menu-button {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 18px 35px;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 300px;
+}
+
+.menu-button:hover {
+    transform: scale(1.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+}
+
+#logout-btn {
+    background: #dc3545;
+    margin-top: 20px;
+}
+
+#logout-btn:hover {
+    background: #c82333;
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+#video-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.6s ease-in-out;
+    padding: 10px;
+}
+
+#video-container iframe {
+    width: 90%;
+    max-width: 900px;
+    height: 50vh;
+    max-height: 500px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+    transition: transform 0.4s ease;
+}
+
+#video-container iframe:hover {
+    transform: scale(1.02);
+}
+
+#video-container button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    border: none;
+    background: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+
+#video-container button:hover {
+    background: darkred;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos para el modal de cierre de sesión */
+#logout-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout-modal-content {
+    background-color: #ff0000;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-message {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.modal-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.modal-button:hover {
+    background-color: #45a049;
+}
+
+/* Animaciones */
+@keyframes fadeInBody {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInMenu {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInButtons {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
